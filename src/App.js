@@ -1,11 +1,20 @@
 import React from 'react';
+import {
+  Container,
+  SnackBar
+} from '@material-ui/core';
+import Header from "./components/Header";
 
 function App() {
   return ( <
-    div className = "App" >
+    Container className = "tweets-simulator"
+    maxWidth = {
+      false
+    } >
     <
-    h1 > Estamos en App < /h1> <
-    /div>
+    Header / >
+    <
+    /Container>
   );
 }
 
