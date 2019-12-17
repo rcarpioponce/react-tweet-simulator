@@ -4,6 +4,7 @@ import {
   SnackBar
 } from '@material-ui/core';
 import Header from "./components/Header";
+import SendTweet from "./components/SendTweet";
 
 function App() {
   return ( <
@@ -13,6 +14,9 @@ function App() {
     } >
     <
     Header / >
+    >
+    <
+    SendTweet / >
     <
     /Container>
   );
