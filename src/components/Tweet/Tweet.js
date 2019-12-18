@@ -8,7 +8,8 @@ import "./Tweet.scss";
 export default function Tweet(props) {
   const {
     tweet: { name, tweet, time },
-    index
+    index,
+    deleteTweet
   } = props;
 
   return (
@@ -16,11 +17,7 @@ export default function Tweet(props) {
       <CardContent>
         <div className="tweet__header">
           <h5>{name}</h5>
-          <DeleteTwoToneIcon
-            onClick={() => {
-              console.log("tweet eliminado");
-            }}
-          />
+          <DeleteTwoToneIcon onClick={() => deleteTweet(index)} />
         </div>
         <p>{tweet}</p>
         <div className="tweet__date-add-tweet">
