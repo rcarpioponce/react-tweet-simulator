@@ -1,24 +1,35 @@
-import React from 'react';
-import {
-  Container,
-  SnackBar
-} from '@material-ui/core';
+import React, { useState, useEffect } from "react";
+import { Container } from "@material-ui/core";
+import Snackbar from "@material-ui/core/Snackbar";
 import Header from "./components/Header";
 import SendTweet from "./components/SendTweet";
+import { TWEET_STORAGE } from "./utils/constants";
 
 function App() {
-  return ( <
-    Container className = "tweets-simulator"
-    maxWidth = {
-      false
-    } >
-    <
-    Header / >
-    >
-    <
-    SendTweet / >
-    <
-    /Container>
+  const [toastProps, setToastProps] = useState({ open: false, text: null });
+  const [allTweets, setAllTweets] = useState([]);
+
+  useEffect(() => {
+    const AllTweestStorage = localStorage.getItem(TWEET_STORAGE);
+    const AllTweetsarray = JSON.parse(AllTweestStorage);
+    setAllTweets(AllTweetsarray);
+  }, []);
+
+  return (
+    <Container className="tweets-simulator" maxWidth={false}>
+      <Header />
+      >
+      <SendTweet setToastProps={setToastProps} allTweets={allTweets} />
+      <Snackbar
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right"
+        }}
+        open={toastProps.open}
+        autoHideDuration={1000}
+        message={<span id="message-id">{toastProps.text}</span>}
+      />
+    </Container>
   );
 }
 
