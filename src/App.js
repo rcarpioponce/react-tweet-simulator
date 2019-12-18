@@ -3,6 +3,8 @@ import { Container } from "@material-ui/core";
 import Snackbar from "@material-ui/core/Snackbar";
 import Header from "./components/Header";
 import SendTweet from "./components/SendTweet";
+import ListTweets from "./components/ListTweets";
+
 import { TWEET_STORAGE } from "./utils/constants";
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
       <Header />
       >
       <SendTweet setToastProps={setToastProps} allTweets={allTweets} />
+      <ListTweets allTweets={allTweets} />
       <Snackbar
         anchorOrigin={{
           vertical: "top",
