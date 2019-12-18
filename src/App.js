@@ -17,6 +17,13 @@ function App() {
     setAllTweets(AllTweetsarray);
   }, []);
 
+  const onCloseSnackBar = event => {
+    setToastProps({
+      ...toastProps,
+      open: false
+    });
+  };
+
   return (
     <Container className="tweets-simulator" maxWidth={false}>
       <Header />
@@ -29,7 +36,8 @@ function App() {
           horizontal: "right"
         }}
         open={toastProps.open}
-        autoHideDuration={1000}
+        autoHideDuration={3000}
+        onClose={onCloseSnackBar}
         message={<span id="message-id">{toastProps.text}</span>}
       />
     </Container>

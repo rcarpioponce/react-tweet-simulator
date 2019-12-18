@@ -28,7 +28,7 @@ export default function FormSendTweet(props) {
               className="form-send-tweet__form-name"
               type="text"
               name="name"
-              placeholder="Nombre de usuario"
+              label="Nombre de usuario"
               margin="normal"
             />
           </FormGroup>
@@ -36,14 +36,20 @@ export default function FormSendTweet(props) {
             <TextField
               className="form-send-tweet__form-textarea"
               multiline
-              row="6"
+              row="8"
               name="tweet"
-              placeholder="Escribe tu Tweet"
+              label="Escribe tu Tweet"
               margin="normal"
+              inputProps={{
+                maxLength: 140
+              }}
+              helperText={`${formValue.tweet.length}/140`}
             />
           </FormGroup>
           <FormGroup>
-            <Button type="submit">Enviar Tweet</Button>
+            <Button type="submit" className="form-send-tweet__button-submit">
+              Twittear
+            </Button>
           </FormGroup>
         </FormControl>
       </form>
